@@ -10,6 +10,7 @@ import WebKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var urlInputTF: UITextField!
     @IBOutlet weak var myWkWebView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,16 @@ class ViewController: UIViewController {
 
     }
 
+    @IBAction func goWeb(_ sender: Any) {
+        
+        let urlString = urlInputTF.text ?? ""
+        if let url = URL(string: urlString){
+            let request = URLRequest(url: url)
+            myWkWebView.load(request)
+        }
 
+        
+        
+    }
 }
 
